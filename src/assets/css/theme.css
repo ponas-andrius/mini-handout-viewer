@@ -1,0 +1,63 @@
+:root {
+  --color-primary: #0d6efd;
+  --color-secondary: #6c757d;
+  --color-success: #198754;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-info: #0dcaf0;
+  --color-light: #f8f9fa;
+  --color-dark: #212529;
+
+  --gradient-bg-light: linear-gradient(120deg, #efe9e9 0%, #ebedee 100%);
+  --gradient-bg-dark: linear-gradient(60deg, #29323c 0%, #485563 100%);
+
+  --color-bg-primary: var(--color-light);
+  --color-bg-secondary: var(--color-secondary);
+  --color-text-primary: var(--color-dark);
+  --color-text-secondary: var(--color-light);
+  --color-border-primary: var(--color-light);
+
+  --bg-color: var(--gradient-bg-light);
+
+  /* Spacing */
+  --s-xs: 0.25rem;
+  --s-sm: 0.5rem;
+  --s-md: 1rem;
+  --s-lg: 1.5rem;
+  --s-xl: 2rem;
+  --s-xxl: 3rem;
+
+  --content-width: 1000px;
+  --header-height: 4rem;
+
+  /* Border Radius */
+  --radius-0: 0;
+  --radius-xxs: 0.25rem;
+  --radius-xs: 0.5rem;
+  --radius-s: 0.75rem;
+  --radius-m: 1rem;
+  --radius-l: 1.5rem;
+  --radius-xl: 2rem;
+
+  /* Typography */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+
+  /* Shadows */
+  --shadow-s: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-m: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-l: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: var(--color-dark);
+    --color-bg-secondary: var(--color-light);
+    --color-text-primary: var(--color-light);
+    --color-text-secondary: var(--color-secondary);
+    --bg-color: var(--gradient-bg-dark);
+  }
+}

@@ -98,10 +98,11 @@ Available npm scripts for development and production:
 ├── public/              # Static files
 │   └── steps.json       # Step data for the handouts viewer
 ├── src/                 # Application source code
-│   ├── components/      # React components
+│   ├── components/      # Global components
 │   ├── hooks/           # Custom hooks (TanStack Query)
 │   ├── types/           # TypeScript type definitions
-│   └── main.tsx         # Entry point with QueryClient setup
+│   ├── pages/           # Application pages and their loacl components
+│   └── App.tsx          # Entry point with QueryClient setup
 ├── .nvmrc               # Node version declaration
 ├── .prettierrc          # Prettier configuration
 ├── .prettierignore      # Prettier ignore patterns

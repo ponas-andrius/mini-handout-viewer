@@ -1,34 +1,36 @@
-import { useStepsQuery } from '../../hooks/steps/useStepsQuery';
+import {
+  useStepsQuery,
+  useUpdateStepMutation,
+} from '../../hooks/steps/useStepsQuery';
+import { Card } from '../../components/Card/Card';
+import { HandoutsViewer } from './components/HandoutsViewer/HandoutsViewer';
 
 export const MainPage = () => {
+  const updateStep = useUpdateStepMutation();
   const { data: steps, isPending, isError } = useStepsQuery();
+
+  const handleStepFinished = (stepIndex: number) => {
+    console.log(stepIndex);
+    updateStep(stepIndex, true);
+  };
 
   if (isPending) {
     return (
-      <div>
+      <Card>
         <p>Loading steps...</p>
-      </div>
+      </Card>
     );
   }
 
   if (isError) {
     return (
-      <div>
+      <Card>
         <p>
           Error loading steps. Make sure data.json is in the same directory.
         </p>
-      </div>
+      </Card>
     );
   }
 
-  return (
-    <div className="ProseMirror" id="steps-container">
-      {steps?.map((step, index) => (
-        <div key={index} className={'tlte__step'}>
-          <h2 dangerouslySetInnerHTML={{ __html: step.summaryHtml }} />
-          <p dangerouslySetInnerHTML={{ __html: step.detailsHtml }} />
-        </div>
-      ))}
-    </div>
-  );
+  return <HandoutsViewer steps={steps} onStepFinish={handleStepFinished} />;
 };

@@ -5,4 +5,5 @@ export interface StepResponse {
 
 export interface Step extends StepResponse {
   done: boolean;
+  title: string;
 }

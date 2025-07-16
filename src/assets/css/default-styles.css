@@ -819,7 +819,7 @@ h1.tlte__section-heading__create::before {
 }
 
 .ProseMirror {
-  display: block !important;
+  display: block;
   font-family: var(--font-family-sans-serif);
   color: var(--color-text-primary);
   padding: var(--scale500) 0;

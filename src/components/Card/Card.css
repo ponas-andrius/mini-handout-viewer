@@ -1,0 +1,12 @@
+.card {
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-s);
+  background-color: var(--color-bg-primary);
+  padding: var(--scale500);
+  border: solid 1px var(--color-border-primary);
+
+  &.card--block {
+    height: 100%;
+    width: 100%;
+  }
+}
