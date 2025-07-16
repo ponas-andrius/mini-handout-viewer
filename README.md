@@ -78,8 +78,15 @@ Available npm scripts for development and production:
    ```
 
 4. Start the development server:
+
    ```bash
    npm run dev
+   ```
+
+   or run preview
+
+   ```bash
+   npm run preview
    ```
 
 ---
