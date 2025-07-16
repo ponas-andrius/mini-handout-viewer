@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Steps Viewer</title>
+    <link href="./editor.css" rel="stylesheet">
+</head>
+<body>
+<div class='ProseMirror' id="steps-container">
+    <!-- Steps will be loaded here -->
+</div>
+
+<script>
+    async function loadSteps() {
+        try {
+            // const response = await fetch('./steps.json');
+            const steps = [
+    {
+        "summaryHtml": "Atidaryk <em>Micro:bit</em> programos <em>Python</em> redaktorių",
+        "detailsHtml": "<a class=\"tlte__link-block\" href=\"https://python.microbit.org/v/3\" target=\"_blank\" data-link-block-type=\"external\"><svg class=\"tlte__link-block__icon\" viewBox=\"0 0 24 24\"><use href=\"#tlte-icon-external\"></use></svg><div class=\"tlte__link-block__content\"><em>Python</em> redaktorius</div></a>"
+    },
+    {
+        "summaryHtml": "Išbandyk iš anksto parašytą kodą. Spausk <em>Play</em> mygtuką",
+        "detailsHtml": "<figure class=\"tlte__image tlte__image__align-center tlte__image__half-width\"><div class=\"tlte__image__media\" style=\"width: 100%\" contenteditable=\"false\"><div class=\"tlte__image__ratio-box\" style=\"padding-bottom: 89.3491124260355%\"></div><img src=\"https://mano.vedliai.lt/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcTlDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2fd673df78ba7309a9483d7e4e4e7fd8307928ad/blob?country=lt&amp;locale=lt\" data-placement=\"alignCenter\" data-size=\"halfWidth\" data-width=\"676\" data-height=\"604\"></div><figcaption class=\"tlte__image-caption\"></figcaption></figure>"
+    },
+    {
+        "summaryHtml": "Ištrink dalį kodo, palik tik <em>micro:bit</em> bibliotekos importavimo eilutę ir komentarus",
+        "detailsHtml": "<figure class=\"tlte__image tlte__image__align-center tlte__image__three-quarters-width\"><div class=\"tlte__image__media\" style=\"width: 100%\" contenteditable=\"false\"><div class=\"tlte__image__ratio-box\" style=\"padding-bottom: 36.186186186186184%\"></div><img src=\"https://mano.vedliai.lt/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcTVDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--bba08c8e1c99bb9828a0d0253359ea49fc5676d9/blob?country=lt&amp;locale=lt\" data-placement=\"alignCenter\" data-size=\"threeQuartersWidth\" data-width=\"1332\" data-height=\"482\"></div><figcaption class=\"tlte__image-caption\"></figcaption></figure>"
+    },
+    {
+        "summaryHtml": "Parašyk kalėdinį tekstą",
+        "detailsHtml": "<p>Naudok <code>show()</code> arba <code>scroll()</code> funkciją.</p><div class=\"tlte__layout\" data-section=\"true\"><div class=\"tlte__layout\" data-column=\"13\"><figure class=\"tlte__image tlte__image__align-center tlte__image__full-width\"><div class=\"tlte__image__media\" style=\"width: 100%\" contenteditable=\"false\"><div class=\"tlte__image__ratio-box\" style=\"padding-bottom: 76.34730538922156%\"></div><img src=\"https://mano.vedliai.lt/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBclJDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--bbb6579c73207be27292be21a7a60729b1d47624/blob?country=lt&amp;locale=lt\" data-placement=\"alignCenter\" data-size=\"fullWidth\" data-width=\"668\" data-height=\"510\"></div><figcaption class=\"tlte__image-caption\">show()</figcaption></figure><p></p></div><div class=\"tlte__layout\" data-column=\"46\"><figure class=\"tlte__image tlte__image__align-center tlte__image__natural-width\"><div class=\"tlte__image__media\" style=\"width: 654px\" contenteditable=\"false\"><div class=\"tlte__image__ratio-box\" style=\"padding-bottom: 78.2874617737003%\"></div><img src=\"https://mano.vedliai.lt/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBclZDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--aba976d58491c535aa2665347feae98eba3781e7/blob?country=lt&amp;locale=lt\" data-placement=\"alignCenter\" data-size=\"naturalWidth\" data-width=\"654\" data-height=\"512\"></div><figcaption class=\"tlte__image-caption\">scroll()</figcaption></figure><p></p></div></div><p><br>Kodo pavyzdys:</p><p><code>#1. Kalėdinis tekstas</code></p><p><code>display.scroll(\"Ho Ho Ho!\")</code></p><p><code>sleep(1000)</code></p>"
+    },
+    {
+        "summaryHtml": "Nupiešk paveikslėlį iš <em>Micro:bit</em> bibliotekos",
+        "detailsHtml": "<p>Paveikslėlius gali rinktis iš jau sukurtų paveikslėlių <em>Display → Images: built-in</em> kategorijoje.</p><figure class=\"tlte__image tlte__image__align-center tlte__image__half-width\"><div class=\"tlte__image__media\" style=\"width: 100%\" contenteditable=\"false\"><div class=\"tlte__image__ratio-box\" style=\"padding-bottom: 137.6271186440678%\"></div><img src=\"https://mano.vedliai.lt/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBckpDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--bb0d93a3ab36632aaa7894875fe93ce424aed961/blob?country=lt&amp;locale=lt\" data-placement=\"alignCenter\" data-size=\"halfWidth\" data-width=\"590\" data-height=\"812\"></div><figcaption class=\"tlte__image-caption\"></figcaption></figure><p>Kodo pavyzdys:</p><div class=\"tlte__layout\" data-section=\"true\"><div class=\"tlte__layout\" data-column=\"13\"><p><code>#2. Nupiešti paveikslėlį iš bibliotekos</code></p><p><code>display.show(Image.XMAS)</code></p><p><code>sleep(1000)</code></p></div><div class=\"tlte__layout\" data-column=\"46\"><figure class=\"tlte__image tlte__image__align-center tlte__image__full-width\"><div class=\"tlte__image__media\" style=\"width: 100%\" contenteditable=\"false\"><div class=\"tlte__image__ratio-box\" style=\"padding-bottom: 76.80722891566265%\"></div><img src=\"https://mano.vedliai.lt/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBck5DIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--90e91b45aadd26507ddb8065009982becda587fd/blob?country=lt&amp;locale=lt\" data-placement=\"alignCenter\" data-size=\"fullWidth\" data-width=\"664\" data-height=\"510\"></div><figcaption class=\"tlte__image-caption\"></figcaption></figure><p></p></div></div>"
+    },
+    {
+        "summaryHtml": "Nupiešk snaigę",
+        "detailsHtml": "<p><em>Micro:bit</em> galima piešti ir savo piešinius, nurodant, kurie ekrano pikseliai (LED lemputės) turi būti nuspalvinti ir kokiu ryškumu. </p><p>Kiekvienoje eilutėje yra 5 pikseliai (iš viso 5 eilutės), o kiekvieno pikselio ryškumas žymimas skaičiumi nuo 0 (išjungtas) iki 9 (ryškiausias).</p><p>Kodo pavyzdys:</p><div class=\"tlte__layout\" data-section=\"true\"><div class=\"tlte__layout\" data-column=\"13\"><p><code>#3. Nupiešti savo paveikslėlį (snaigę)</code></p><p><code>display.show(Image('01410:'</code></p><p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'04740:'</code></p><p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'46964:'</code></p><p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'04740:'</code></p><p><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'01410'))</code></p></div><div class=\"tlte__layout\" data-column=\"46\"><figure class=\"tlte__image tlte__image__align-center tlte__image__full-width\"><div class=\"tlte__image__media\" style=\"width: 100%\" contenteditable=\"false\"><div class=\"tlte__image__ratio-box\" style=\"padding-bottom: 77.67584097859327%\"></div><img src=\"https://mano.vedliai.lt/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBckZDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1956a3e34b502b546e137fc42d32b8d602ba7d37/blob?country=lt&amp;locale=lt\" data-placement=\"alignCenter\" data-size=\"fullWidth\" data-width=\"654\" data-height=\"508\"></div><figcaption class=\"tlte__image-caption\"></figcaption></figure><p></p></div></div>"
+    },
+    {
+        "summaryHtml": "Suprogramuok kalėdinę melodiją",
+        "detailsHtml": "<p>Muzikos kūrimo instrukcijos pateikiamos <em>Sound</em> skiltyje.</p><p>Kodo pavyzdys:</p><div class=\"tlte__layout\" data-section=\"true\"><div class=\"tlte__layout\" data-column=\"13\"><p><code>#4. Sugroti kalėdinę melodiją (jingle bells)</code></p><p><code>import music</code></p><p><code>#1</code></p><p><code>music.play(['e', 'e', 'e', 'r'])</code></p><p><code>music.play(['e', 'e', 'e', 'r'])</code></p><p><code>music.play(['e', 'g', 'c', 'd', 'e', 'r'])</code></p><p><code>#2</code></p><p><code>music.play(['f', 'f', 'f', 'f', 'f'])</code></p><p><code>music.play(['f', 'e', 'e', 'e', 'e'])</code></p><p><code>music.play(['g', 'g', 'f', 'd', 'c:4', 'r'])</code></p><p><code>sleep(1000)</code></p></div><div class=\"tlte__layout\" data-column=\"46\"><a class=\"tlte__link-block\" href=\"https://drive.google.com/file/d/1vXfgLw-ZyZe8ZwNSW8w72oGN-3bKc71o/view?usp=sharing\" target=\"_blank\" data-link-block-type=\"external\"><svg class=\"tlte__link-block__icon\" viewBox=\"0 0 24 24\"><use href=\"#tlte-icon-external\"></use></svg><div class=\"tlte__link-block__content\">Melodijos pavyzdys</div></a></div></div>"
+    },
+    {
+        "summaryHtml": "Įgarsink kalėdinį sveikinimą",
+        "detailsHtml": "<p>Instrukcijos pateikiamos <em>Sound</em> skiltyje → <em>Speech</em>.</p><p>Kodo pavyzdys:</p><div class=\"tlte__layout\" data-section=\"true\"><div class=\"tlte__layout\" data-column=\"13\"><p><code>#5. Pasveikinti su šv. Kalėdomis</code></p><p><code>import speech</code></p><p><code>audio.play(Sound.YAWN)</code></p><p><code>speech.say(\"We wish you a merry Christmas!\")</code></p></div><div class=\"tlte__layout\" data-column=\"46\"><a class=\"tlte__link-block\" href=\"https://drive.google.com/file/d/1_uB8M5XMc3ZUm7Z1VglBldtl1IvWdBTy/view?usp=sharing\" target=\"_blank\" data-link-block-type=\"external\"><svg class=\"tlte__link-block__icon\" viewBox=\"0 0 24 24\"><use href=\"#tlte-icon-external\"></use></svg><div class=\"tlte__link-block__content\">Kalėdinio sveikinimo pavyzdys</div></a></div></div>"
+    },
+    {
+        "summaryHtml": "Sukurk savo kalėdinį sveikinimą, panaudojant aukščiau naudotas funkcijas",
+        "detailsHtml": "<p>Laisvai eksperimentuok!</p>"
+    },
+    {
+        "summaryHtml": "Išsaugok projektą",
+        "detailsHtml": "<figure class=\"tlte__image tlte__image__align-center tlte__image__half-width\"><div class=\"tlte__image__media\" style=\"width: 100%\" contenteditable=\"false\"><div class=\"tlte__image__ratio-box\" style=\"padding-bottom: 19.195046439628484%\"></div><img src=\"https://mano.vedliai.lt/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcXRDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4a48f1a364af669de03890374f15b75d08f8c4b5/blob?country=lt&amp;locale=lt\" data-placement=\"alignCenter\" data-size=\"halfWidth\" data-width=\"646\" data-height=\"124\"></div><figcaption class=\"tlte__image-caption\"></figcaption></figure>"
+    },
+    {
+        "summaryHtml": "Padaryk sveikinimo .gif ir įkelk pratybų apačioje",
+        "detailsHtml": "<p></p>"
+    }
+];
+
+            const container = document.getElementById('steps-container');
+
+            steps.forEach((step, _index) => {
+                const stepDiv = document.createElement('div');
+                stepDiv.className = 'tlte__step';
+
+                stepDiv.innerHTML = `
+                        <h2 class="step-summary">
+                            ${step.summaryHtml}
+                        </h2>
+                        <div class="step-details">
+                            ${step.detailsHtml}
+                        </div>
+                    `;
+
+                container.appendChild(stepDiv);
+            });
+
+        } catch (error) {
+            console.error('Error loading steps:', error);
+            document.getElementById('steps-container').innerHTML =
+                '<p>Error loading steps. Make sure steps.json is in the same directory.</p>';
+        }
+    }
+
+    // Load steps when page loads
+    document.addEventListener('DOMContentLoaded', loadSteps);
+</script>
+</body>
+</html>

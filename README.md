@@ -1,5 +1,109 @@
 # Front-end Task: Mini Handouts Viewer
 
+A lightweight React-based viewer application powered by Vite, TypeScript, and modern tooling.
+
+---
+
+## 📦 Tech Stack
+
+- **React 19** – For UI rendering
+- **Vite** – build tool
+- **TypeScript** – we use TypeScript to make code easier to maintain
+- **TanStack Query** – Library for data fetching and caching
+- **ESLint** – Code linting for consistency and quality
+- **Prettier** – Code formatting for consistent style
+- **NVM** – Node Version Manager for environment consistency
+
+---
+
+## ⚙️ Prerequisites
+
+To ensure compatibility, please use the specified Node.js version.
+
+### Required Tools:
+
+- **[Node.js](https://nodejs.org/)** (Managed via NVM)
+- **[NVM](https://github.com/nvm-sh/nvm)** (Node Version Manager)
+
+### Node Version
+
+This project includes a `.nvmrc` file that specifies the required Node version. To use it:
+
+```bash
+nvm use
+```
+
+If you don’t have the specified version installed:
+
+```bash
+nvm install
+```
+
+---
+
+## 📜 Scripts & Explanations
+
+Available npm scripts for development and production:
+
+| Script           | Command                | Description                                                       |
+| ---------------- | ---------------------- | ----------------------------------------------------------------- |
+| **dev**          | `vite`                 | Starts the development server with hot module replacement (HMR).  |
+| **build**        | `tsc -b && vite build` | Compiles TypeScript and bundles the app for production.           |
+| **preview**      | `vite preview`         | Previews the production build locally.                            |
+| **lint**         | `eslint .`             | Runs ESLint across the codebase to catch syntax and style issues. |
+| **format**       | `prettier --write .`   | Formats all files using Prettier for consistent code style.       |
+| **format:check** | `prettier --check .`   | Checks if files are properly formatted without making changes.    |
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/mini-handout-viewer.git
+   cd mini-handout-viewer
+   ```
+
+2. Use the correct Node version:
+
+   ```bash
+   nvm use
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🗂️ Project Structure
+
+```
+.
+├── public/              # Static files
+│   └── steps.json       # Step data for the handouts viewer
+├── src/                 # Application source code
+│   ├── components/      # React components
+│   ├── hooks/           # Custom hooks (TanStack Query)
+│   ├── types/           # TypeScript type definitions
+│   └── main.tsx         # Entry point with QueryClient setup
+├── .nvmrc               # Node version declaration
+├── .prettierrc          # Prettier configuration
+├── .prettierignore      # Prettier ignore patterns
+├── tsconfig.json        # TypeScript configuration
+└── vite.config.ts       # Vite configuration
+```
+
+# Task
+
 Hi there!
 
 We’d like to invite you to take on a front-end task that will help us understand how you structure UI, work with JSON data, and organize your code. The task should take no longer than 4–6 hours.
@@ -53,8 +157,8 @@ We provide three starter files:
 - Logical UI architecture (components, state management)
 - User experience (UX)
 - Bonus points for:
-    - Responsive design
-    - Accessibility support
+  - Responsive design
+  - Accessibility support
 
 ## Submission
 
