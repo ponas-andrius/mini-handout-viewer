@@ -10,7 +10,6 @@ export const MainPage = () => {
   const { data: steps, isPending, isError } = useStepsQuery();
 
   const handleStepFinished = (stepIndex: number) => {
-    console.log(stepIndex);
     updateStep(stepIndex, true);
   };
 

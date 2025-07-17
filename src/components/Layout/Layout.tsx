@@ -9,10 +9,10 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="layout">
       <header className="layout__header">
         <div className="layout__header-content">
-          <div className="layout__header-logo">HandoutViewer™</div>
-          <a href="#main-content" className="hw__nav-link--hidden">
+          <a href="#task-list" className="layout__hidden-link">
             Eiti prie užduoties
           </a>
+          <div className="layout__header-logo">HandoutViewertron3000™</div>
         </div>
       </header>
       <div className="layout__content">{children}</div>
